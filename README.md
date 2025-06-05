@@ -1,2 +1,2 @@
-# todo-list-project
+# todolist-vanilla
 we are idle 
