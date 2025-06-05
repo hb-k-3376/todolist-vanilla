@@ -1,0 +1,28 @@
+{
+  "name": "simple-todo-list",
+  "version": "1.0.0",
+  "description": "we are idle",
+  "main": "script.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "live-server --port=5500 --open=/index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hb-k-3376/todolist-vanilla.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/hb-k-3376/todolist-vanilla/issues"
+  },
+  "homepage": "https://github.com/hb-k-3376/todolist-vanilla#readme",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}
