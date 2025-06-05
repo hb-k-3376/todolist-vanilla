@@ -18,7 +18,7 @@ cd todolist-vanilla
 # 의존성 설치
 npm install
 
-# 개발 서버 실행
+# 개발 서버 실행 실행 포트 : 5500
 npm start
 ```
 
