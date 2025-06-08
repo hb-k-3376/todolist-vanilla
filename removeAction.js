@@ -52,7 +52,3 @@ document.addEventListener("DOMContentLoaded", () => {
     todoList.addEventListener("click", handleRemove);
   }
 });
-
-
-git config --global user.name "SEOKJU"
-git config --global user.email "sbbt@naver.com"
