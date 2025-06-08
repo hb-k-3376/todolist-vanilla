@@ -1,14 +1,32 @@
 <!DOCTYPE html>
 <html lang="ko-KR">
-  <link>
-    <title>Todo list vanilla</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./style.css"></link>
-    <link rel="stylesheet" href="./resetStyle.css"></link>
-    <script src="./script.js" defer></script>
-  </head>
-  <body>
-    <h1>테스트</h1>
-  </body>
+<link>
+<title>Todo list vanilla</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="./style.css">
+</link>
+<link rel="stylesheet" href="./resetStyle.css">
+</link>
+<script src="./removeAction.js" defer></script>
+<script src="./main.js" defer></script>
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <h1>Todo List</h1>
+    </header>
+
+    <form class="todo-form">
+      <input type="text" placeholder="할 일을 입력하세요">
+      <button type="submit" class="create-btn">추가</button>
+    </form>
+
+    <div class="todo-container">
+      <ul class="todo-list" id="todoList"></ul>
+    </div>
+  </div>
+</body>
+
 </html>
