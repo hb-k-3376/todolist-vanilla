@@ -154,7 +154,7 @@ main {
   }
 }
 
-.todo .todo-foward {
+.todo .todo-forward {
   display: flex;
   align-items: center;
 }
@@ -193,6 +193,11 @@ main {
   font-weight: 400;
   line-height: normal;
   user-select: none;
+}
+
+.todo .remove-todo {
+  border: none;
+  background-color: inherit;
 }
 
 /* footer  */
