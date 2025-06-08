@@ -51,3 +51,46 @@ function toggleTodo(id) {
 }
 
 ```
+
+## 배분
+
+#### 스토리지 함수
+
+- get
+- set
+
+#### pure function
+
+- todo list 배열에 todo 객체 추가
+- todo list 배열에서 선택된 todo 객체 삭제
+- todo status 변경 (completed)
+- 날짜 class 함수
+- 프로그레스바 계산 함수
+- todo 객체 생성 함수
+- input value 값 가져오기
+
+#### render function
+
+- li 추가
+- li 삭제
+- list 그리기
+
+#### event function
+
+- init
+- 추가 버튼 클릭
+- todo 삭제
+- 날짜 선택
+- todo 완료
+
+### 기능
+
+todo 추가
+
+todo 삭제
+
+todo 완료
+
+날짜 선택
+
+화면 새로고침 (DOMContentLoaded)
