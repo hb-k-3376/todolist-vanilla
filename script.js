@@ -17,12 +17,12 @@ const _init = () => {
   let list = "";
   const id = "202506080340";
 
-  const _todoList = getTodosListLocalStorage(id);
+  const todoList = getTodosListLocalStorage(id);
 
-  if (!_todoList) {
+  if (!todoList) {
     return;
   }
-  _todoList.forEach((obj, index) => {
+  todoList.forEach((obj, index) => {
     list += `<li class="content li${index}">
         <div>
             <input type="checkBox" ${obj.checked ? "checked" : ""} />
@@ -32,20 +32,22 @@ const _init = () => {
     </li>`;
   });
   parent.innerHTML = list;
-  const count = _todoList.filter((obj) => obj.checked === true).length;
-  calcProgress(count, _todoList.length);
+
+  calcProgress(todoList);
 };
 
 /**
  * todo-list의 완료한 건수와 전체건수의 퍼센트를 프로그래스바에 그린다.
- * @param {number,number} todo-list의 완료한 건수와 전체 건수
+ * @param {array} todoList
  * @returns {void}
  */
-const calcProgress = (complete, total) => {
+const calcProgress = (todoList) => {
+  const count = todoList.filter((obj) => obj.checked === true).length;
+  const total = todoList.length;
   const progress = document.querySelector(".progress");
   const round = 2 * Math.PI * 25;
-  progress.style.strokeDashoffset = round - (round * complete) / total;
-  countingPercent(Math.round((complete / total) * 100));
+  progress.style.strokeDashoffset = round - (round * count) / total;
+  countingPercent(Math.round((count / total) * 100));
 };
 
 /**
@@ -89,10 +91,10 @@ const selectedDate = (clickedDate) => {
  * @param {object} todo-list data
  * @returns {void}
  */
-const setTodosListLocalStorage = (todosList) => {
+const setTodosListLocalStorage = (todo) => {
   const _todoList = JSON.parse(localStorage.getItem("Todos")) ?? [];
 
-  _todoList.push(todosList);
+  _todoList.push(todo);
   localStorage.setItem("Todos", JSON.stringify(_todoList));
 };
 
@@ -101,7 +103,7 @@ const setTodosListLocalStorage = (todosList) => {
  * @param {string} todo-list ID
  * @returns {array} todo-list array
  */
-const getTodosListLocalStorage = (todosId) => {
+const getTodosListLocalStorage = (todosDate) => {
   const _todoList = JSON.parse(localStorage.getItem("Todos")) ?? [];
-  return _todoList.filter((todos) => todos.id === todosId);
+  return _todoList.filter((todos) => todos.id === todosDate);
 };
