@@ -43,7 +43,7 @@ const _init = () => {
  */
 const calcProgress = (complete, total) => {
   const progress = document.querySelector(".progress");
-  const round = 2 * Math.PI * 40;
+  const round = 2 * Math.PI * 25;
   progress.style.strokeDashoffset = round - (round * complete) / total;
   countingPercent(Math.round((complete / total) * 100));
 };
@@ -102,6 +102,6 @@ const setTodosListLocalStorage = (todosList) => {
  * @returns {array} todo-list array
  */
 const getTodosListLocalStorage = (todosId) => {
-  const _todoList = JSON.parse(localStorage.getItem("Todos"));
+  const _todoList = JSON.parse(localStorage.getItem("Todos")) ?? [];
   return _todoList.filter((todos) => todos.id === todosId);
 };
