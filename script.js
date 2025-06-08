@@ -72,7 +72,7 @@ const countingPercent = (percent) => {
 /**
  * 기존의 on class를 제거한다.
  * 클릭한 data의 클래스받아 on클래스를 추가한다
- * @param {string} todo-list의 완료 퍼센트
+ * @param {string} 선택한 날짜 class값
  * @returns {void}
  */
 const selectedDate = (clickedDate) => {
