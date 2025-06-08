@@ -4,7 +4,7 @@
  * @returns {object} todo객체 생성
  */
 
-function createTodo(text) {
+const createTodo = (text) => {
   let now = new Date();
 
   if (typeof text !== "string") {
@@ -12,12 +12,16 @@ function createTodo(text) {
   }
   return {
     id: now.toISOString(),
+    // id: todoList.length,
     text,
     date: now.toLocaleDateString("ko-KR"),
     time: now.toLocaleTimeString("ko-KR"),
     completed: false,
   };
-}
+};
+// const obj1 = createTodo(2222);
+const obj2 = createTodo("2222어쩌구저쩌구");
+const obj3 = createTodo("3333어쩌구저쩌구");
 
 /**
  *배열에 todo객체 추가 함수
@@ -26,13 +30,18 @@ function createTodo(text) {
  * @returns {Array} todoList
  */
 let todoList = [];
-function addTodoList(todo, todoList) {
+const addTodoList = (todo, todoList) => {
   if (!Object.keys(todo).includes("id")) {
     throw new TypeError("배열에 추가하는 todo는 object여야 합니다");
   }
   todoList.push(todo);
   return todoList;
-}
+};
+
+// addTodoList([1, 23, 4, 5]);
+addTodoList(obj2, todoList);
+addTodoList(obj3, todoList);
+console.log(todoList);
 
 /**
  *todo list 배열에서 선택한 todo객체의 status 변경
@@ -40,8 +49,7 @@ function addTodoList(todo, todoList) {
  * @param {Array} todoList
  * @returns {Array} 항목이 제거된 배열
  */
-
-function changeTodoStatus(id, todoList) {
+const changeTodoStatus = (id, todoList) => {
   if (typeof id !== "string") {
     throw new TypeError("id는 문자열이여야 합니다.");
   }
@@ -61,7 +69,7 @@ function changeTodoStatus(id, todoList) {
   });
 
   return todoList;
-}
+};
 
 /**
  *배열에서 해당 id와 일치하는 항목을 제거
@@ -70,7 +78,7 @@ function changeTodoStatus(id, todoList) {
  * @returns {Array} todoList
  */
 
-function removeItemArray(id, todoList) {
+const removeItemArray = (id, todoList) => {
   if (typeof id !== "string") {
     throw new TypeError("id는 문자열이여야 합니다.");
   }
@@ -81,4 +89,4 @@ function removeItemArray(id, todoList) {
 
   todoList = todoList.filter((item) => item.id !== id);
   return todoList;
-}
+};
