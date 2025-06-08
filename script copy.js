@@ -1,21 +1,10 @@
-
-/**
- * input value 값 가져오기, 앞뒤 공백을 제거한 문자열을 반환합니다.
- * @returns {string} 입력된 할 일 텍스트 
- * @example
- * const value = getInputValue();
- */
+// input value 값 가져오기
 const getInputValue = () =>{
     const input =  document.querySelector('.todo-form input[type="text"]')//현재 input 고유하다고 가정
     return input.value.trim();
 }
 
-/**
- * li를 생성합니다.
- * @param {string} value
- * @param {string} id
- * @returns {HTMLLIElement} 
- */
+// li 추가하기
 function createItem(value, id) {
   const li = document.createElement('li');
   li.textContent = value;
@@ -23,27 +12,13 @@ function createItem(value, id) {
   return li;
 }
 
-/**
- * li 요소를 DOM에서 제거합니다.
- *
- * @function
- * @param {string} id 
- * @returns {void}
- * @example
- * removeItem(123);
- */
+// li 삭제하기
 function removeItem(id){
     const li = document.querySelector(`li[data-id]="${id}"`)
     li.remove();
 }
 
-/**
- *
- * @function
- * @returns {void}
- * @example
- * renderList();
- */
+// list 그리기
 function renderList(){
     const ul = document.getElementById('todoList')
     ul.innerHTML='';
@@ -52,10 +27,21 @@ function renderList(){
         ul.appendChild(li);
     })
 }
-
 // 초기 렌더링
 document.addEventListener('DOMContentLoaded', renderList);
 
 
 // localStorage에서 가져오기
 let todoList = JSON.parse(localStorage.getItem("todos")) || [];
+
+// 이벤트 리스너 등록 
+document.querySelector('.todo-form').addEventListener('submit', (e)=>{
+    e.preventDefault();
+    const value = getInputValue();
+    if(value){
+        const id = Date.now().toString();
+        todoList.push({})
+        localStorage.setItem('todos', JSON.stringify(todolist))
+
+    }
+})
