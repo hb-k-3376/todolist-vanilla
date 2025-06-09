@@ -1,9 +1,15 @@
-// input value 값 가져오기
+/**
+ * input value 값 가져오기
+ * @returns {string} 
+ */
 const getInputValue = () => {
   const input = document.querySelector('.input'); //현재 input 고유하다고 가정
   return input.value.trim();
 };
-
+/**
+ * 입력값을 초기화합니다.
+ * @returns {void}
+ */
 const clearInput = () => {
   const input = document.querySelector('.input');
   input.value = '';
@@ -35,43 +41,42 @@ const createTodo = (text) => {
  * @param {Array} todoList
  * @returns {Array} todoList
  */
-const addTodoList = (todo, toDoList) => {
+const addtodoList = (todo, todoList) => {
   if (!Object.keys(todo).includes('id')) {
     throw new TypeError('배열에 추가하는 todo는 object여야 합니다');
   }
-  toDoList.push(todo);
-  return toDoList;
+  todoList.push(todo);
+  return todoList;
 };
 
 /**
  *배열에서 해당 id와 일치하는 항목을 제거
  * @param {string} id
- * @param {Array} toDoList
- * @returns {Array} toDoList
+ * @param {Array} todoList
+ * @returns {Array} todoList
  */
-const removeItemArray = (id) => {
+const removeItemArray = (id,todoList) => {
   if (typeof id !== 'string') {
     throw new TypeError('id는 문자열이여야 합니다.');
   }
 
-  if (!Array.isArray(toDoList)) {
+  if (!Array.isArray(todoList)) {
     throw new TypeError('todoList는 배열이여야 합니다.');
   }
 
-  toDoList = toDoList.filter((item) => item.id !== id);
-  return toDoList;
+  return todoList.filter((item) => item.id !== id);
 };
 
-let toDoList = [];
+let todoList = [];
 
 /**
  * todo-list의 완료한 건수와 전체건수의 퍼센트를 프로그래스바에 그린다.
  * @param {array} todoList
  * @returns {void}
  */
-const calcProgress = (toDoList) => {
-  const count = toDoList.filter((obj) => obj.completed === true).length;
-  const total = toDoList.length;
+const calcProgress = (todoList) => {
+  const count = todoList.filter((obj) => obj.completed === true).length;
+  const total = todoList.length;
   const progress = document.querySelector('.progress');
   const round = 2 * Math.PI * 25;
   progress.style.strokeDashoffset = round - (round * count) / total;
@@ -81,7 +86,7 @@ const calcProgress = (toDoList) => {
 /**
  *todo list 배열에서 선택한 todo객체의 status 변경
  * @param {string} id
- * @param {Array} toDoList
+ * @param {Array} todoList
  * @returns {Array} 항목이 제거된 배열
  */
 const changeTodoStatus = (id) => {
@@ -89,11 +94,11 @@ const changeTodoStatus = (id) => {
     throw new TypeError('id는 문자열이여야 합니다.');
   }
 
-  if (!Array.isArray(toDoList)) {
+  if (!Array.isArray(todoList)) {
     throw new TypeError('todoList는 배열이여야 합니다.');
   }
 
-  toDoList = toDoList.map((item) => {
+  todoList = todoList.map((item) => {
     if (item.id === id) {
       return {
         ...item,
@@ -103,7 +108,7 @@ const changeTodoStatus = (id) => {
     return item;
   });
 
-  return toDoList;
+  return todoList;
 };
 
 /**
@@ -129,13 +134,22 @@ const countingPercent = (percent) => {
   }
 };
 
+/**
+ * 해당 id로 todo 항목을 삭제한 뒤, 로컬 스토리지에 저장하고 화면을 갱신합니다.
+ * @param {string} id 
+ * @returns {void}
+ */
 const handleRemoveTodo = (id) => {
-  removeItemArray(id);
+  todoList = removeItemArray(id, todoList);
   setTodosListLocalStorage();
   init();
 };
 
-// li 추가하기
+/**
+ * li 요소를 생성합니다.
+ * @param {object} todo 
+ * @returns {HTMLLIElement}
+ */
 function createItem(todo) {
   const li = document.createElement('li');
   li.setAttribute('data-id', todo.id);
@@ -169,11 +183,15 @@ function createItem(todo) {
   return li;
 }
 
-// list 그리기
-function renderList(toDoList) {
+/**
+ * todoList를 화면에 렌더링합니다.
+ * @param {Array} todoList
+ * @returns {void}
+ */
+function renderList(todoList) {
   const ul = document.querySelector('.todo-list');
   ul.innerHTML = '';
-  toDoList.forEach((todo) => {
+  todoList.forEach((todo) => {
     const li = createItem(todo);
     ul.appendChild(li);
   });
@@ -205,18 +223,18 @@ const getTodosListLocalStorage = () => {
 const setTodosListLocalStorage = () => {
   // const _todoList = JSON.parse(localStorage.getItem('Todos')) ?? [];
   // _todoList.push(todo);
-  localStorage.setItem('Todos', JSON.stringify(toDoList));
+  localStorage.setItem('Todos', JSON.stringify(todoList));
 };
 
 const init = () => {
   // 로컬 스토리지에서 todo List 불러오기
-  toDoList = getTodosListLocalStorage();
+  todoList = getTodosListLocalStorage();
 
   // 초기 리스트 render
-  renderList(toDoList);
+  renderList(todoList);
 
   // 프로그레스 바
-  calcProgress(toDoList);
+  calcProgress(todoList);
 };
 
 const handleAddTodo = (e) => {
@@ -224,9 +242,9 @@ const handleAddTodo = (e) => {
   const value = getInputValue();
   const todo = createTodo(value);
 
-  addTodoList(todo, toDoList);
+  addtodoList(todo, todoList);
 
-  setTodosListLocalStorage(toDoList);
+  setTodosListLocalStorage(todoList);
 
   createItem(todo);
   clearInput();
