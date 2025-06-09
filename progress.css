@@ -1,0 +1,68 @@
+:root {
+  --green: #007271;
+}
+
+.circle_wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+}
+
+.circle {
+  cursor: pointer;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  position: relative;
+  margin: 0;
+}
+
+.pie {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-90deg);
+}
+
+/* SVG 크기를 60px에 맞게 조정 */
+.pie svg {
+  width: 60px;
+  height: 60px;
+}
+
+circle {
+  fill: none;
+  stroke: #93cccc;
+  stroke-width: 8; /* 60px에 맞게 stroke-width 조정 */
+}
+
+circle:nth-child(2) {
+  stroke: #3d3ded;
+  stroke-dashoffset: 157px; /* 60px 원에 맞게 조정 */
+  stroke-dasharray: 157px; /* 60px 원에 맞게 조정 */
+  stroke-linecap: round;
+  transition: stroke-dashoffset 2s;
+}
+
+.circle_3 circle:nth-child(2) {
+  stroke: var(--green);
+}
+
+.circle_3.on circle:nth-child(2) {
+  stroke-dashoffset: calc(157px - 157px * 0 / 100);
+}
+
+.wrap_txt {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* 중앙 정렬로 수정 */
+  font-size: 12px;
+  font-weight: bold;
+  color: #333;
+}
