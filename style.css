@@ -16,6 +16,7 @@ body {
   border-radius: 20px;
   display: flex;
   flex-direction: column;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
 }
 
 header {
