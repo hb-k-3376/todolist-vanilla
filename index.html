@@ -1,86 +1,70 @@
 <!DOCTYPE html>
 <html lang="ko-KR">
+  <head>
+    <title>Todo list vanilla</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./resetStyle.css" />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./progress.css" />
+    <script src="./lib/common.js" defer></script>
+    <script src="./lib/dom.js" defer></script>
+    <script src="./lib/storage.js" defer></script>
+    <script src="./lib/event.js" defer></script>
+  </head>
 
-<head>
-  <title>Todo list vanilla</title>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="./resetStyle.css" />
-  <link rel="stylesheet" href="./style.css" />
-  <link rel="stylesheet" href="./progress.css" />
-  <script src="./lib/common.js" defer></script>
-  <script src="./lib/dom.js" defer></script>
-  <script src="./lib/storage.js" defer></script>
-  <script src="./lib/event.js" defer></script>
-</head>
-
-<body>
-  <header>
-    <div>
-      <p class="team-name">we are idle</p>
-      <h1>To-Do List</h1>
-    </div>
-    <div class="circle_wrap">
-      <div class="circle circle_3 on">
-        <div class="pie">
-          <svg viewBox="0 0 60 60">
-            <circle cx="30" cy="30" r="25"></circle>
-            <circle class="progress" cx="30" cy="30" r="25"></circle>
-          </svg>
-        </div>
-        <div class="wrap_txt">0%</div>
+  <body>
+    <header>
+      <div>
+        <p class="team-name">we are idle</p>
+        <h1>To-Do List</h1>
       </div>
-    </div>
-  </header>
+      <div class="circle_wrap">
+        <div class="circle circle_3 on">
+          <div class="pie">
+            <svg viewBox="0 0 60 60">
+              <circle cx="30" cy="30" r="25"></circle>
+              <circle class="progress" cx="30" cy="30" r="25"></circle>
+            </svg>
+          </div>
+          <div class="wrap_txt">0%</div>
+        </div>
+      </div>
+    </header>
 
-  <main>
-    <form class="input-section">
-      <input placeholder="Add Todo" class="input" />
-      <button class="add" type="submit">
-        <svg width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M9.5 17V1" stroke="#ABABAB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-          <path d="M1.5 9H17.5" stroke="#ABABAB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-        </svg>
-      </button>
-    </form>
-    <ul class="calendar">
-      <li class="calender-item">
-        <p class="day">F</p>
-        <p>6</p>
-      </li>
-      <li class="calender-item">
-        <p class="day">S</p>
-        <p>7</p>
-      </li>
-      <li class="calender-item">
-        <p class="day">S</p>
-        <p>8</p>
-      </li>
-      <li class="calender-item active">
-        <p class="day">M</p>
-        <p>9</p>
-      </li>
-      <li class="calender-item">
-        <p class="day">T</p>
-        <p>10</p>
-      </li>
-      <li class="calender-item">
-        <p class="day">W</p>
-        <p>11</p>
-      </li>
-      <li class="calender-item">
-        <p class="day">T</p>
-        <p>12</p>
-      </li>
-    </ul>
-    <ul class="todo-list">
-
-    </ul>
-    <footer>
-      <span>@programmers 6th team we are idle</span>
-    </footer>
-  </main>
-
-</body>
-
+    <main>
+      <form class="input-section">
+        <input placeholder="Add Todo" class="input" />
+        <button class="add" type="submit">
+          <svg
+            width="19"
+            height="18"
+            viewBox="0 0 19 18"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M9.5 17V1"
+              stroke="#ABABAB"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M1.5 9H17.5"
+              stroke="#ABABAB"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </button>
+      </form>
+      <ul class="calendar"></ul>
+      <ul class="todo-list"></ul>
+      <footer>
+        <span>@programmers 6th team we are idle</span>
+      </footer>
+    </main>
+  </body>
 </html>
