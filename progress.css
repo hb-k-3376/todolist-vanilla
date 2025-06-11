@@ -35,13 +35,13 @@
   height: 60px;
 }
 
-circle {
+.progress-circle {
   fill: none;
   stroke: #93cccc;
   stroke-width: 8; /* 60px에 맞게 stroke-width 조정 */
 }
 
-circle:nth-child(2) {
+.progress-circle:nth-child(2) {
   stroke: #3d3ded;
   stroke-dashoffset: 157px; /* 60px 원에 맞게 조정 */
   stroke-dasharray: 157px; /* 60px 원에 맞게 조정 */
@@ -49,11 +49,11 @@ circle:nth-child(2) {
   transition: stroke-dashoffset 2s;
 }
 
-.circle_3 circle:nth-child(2) {
+.circle_3 .progress-circle:nth-child(2) {
   stroke: var(--green);
 }
 
-.circle_3.on circle:nth-child(2) {
+.circle_3.on .progress-circle:nth-child(2) {
   stroke-dashoffset: calc(157px - 157px * 0 / 100);
 }
 
@@ -64,5 +64,5 @@ circle:nth-child(2) {
   transform: translate(-50%, -50%); /* 중앙 정렬로 수정 */
   font-size: 12px;
   font-weight: bold;
-  color: #333;
+  color: var(--text);
 }
