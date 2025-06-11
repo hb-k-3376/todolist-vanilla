@@ -23,14 +23,8 @@ npm start
 ```
 
 
-### 4. 사용 가이드
 
-| <img src="https://github.com/user-attachments/assets/b5622088-5b09-4339-9ce8-4b8c2fc3640e" width=400 /> | <img src="https://github.com/user-attachments/assets/307565aa-dfe3-4667-9db4-0ebaf36ba826"  width=400 /> | <img src="https://github.com/user-attachments/assets/a04aafcb-dc49-4a7e-aa37-ca6631803b91"   width=400/> |
-|:--:|:--:|:--:|
-| 일주일 단위의 달력을 제공하며 각각의 날짜에 todo 생성| 체크박스를 통해 todo 관리 및 미완료 알림 | 오른쪽 상단의 프로그래스바에 해당 날짜의 달성률 확인|
-
-
-## 📖 JSDoc 가이드
+### 3. JSDoc 가이드
 
 #### 모든 함수에는 JSDoc을 작성해야 합니다.
 
@@ -59,4 +53,12 @@ function toggleTodo(id) {
 }
 
 ```
+
+
+
+## 📝 완성된 기능
+
+| <img src="https://github.com/user-attachments/assets/b5622088-5b09-4339-9ce8-4b8c2fc3640e" width=400 /> | <img src="https://github.com/user-attachments/assets/307565aa-dfe3-4667-9db4-0ebaf36ba826"  width=400 /> | <img src="https://github.com/user-attachments/assets/a04aafcb-dc49-4a7e-aa37-ca6631803b91"   width=400/> |
+|:--:|:--:|:--:|
+| 일주일 단위의 달력을 제공하며 각각의 날짜에 todo 생성| 체크박스를 통해 todo 관리 및 미완료 알림 | 오른쪽 상단의 프로그래스바에 해당 날짜의 달성률 확인|
 
