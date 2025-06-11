@@ -22,6 +22,17 @@ npm install
 npm start
 ```
 
+
+### 4. 사용 가이드
+![스크린샷 2025-06-12 오전 8 27 36](https://github.com/user-attachments/assets/b5622088-5b09-4339-9ce8-4b8c2fc3640e)
+처음 들어가면 오늘을 기준으로 -3 일 +3일 달력이 보여지며 각각의 날짜에 todo를 설정할수 있습니다.
+
+![스크린샷 2025-06-12 오전 8 27 41](https://github.com/user-attachments/assets/307565aa-dfe3-4667-9db4-0ebaf36ba826)
+상단에 프로그레스바가 있어 각각의 날짜 마다 달성률을 보여주며, 달성률이 100%이 아닌 날짜에는 달력에 알림 표시가 뜹니다.
+
+![스크린샷 2025-06-12 오전 8 27 46](https://github.com/user-attachments/assets/a04aafcb-dc49-4a7e-aa37-ca6631803b91)
+
+
 ## 📖 JSDoc 가이드
 
 #### 모든 함수에는 JSDoc을 작성해야 합니다.
@@ -52,45 +63,3 @@ function toggleTodo(id) {
 
 ```
 
-## 배분
-
-#### 스토리지 함수
-
-- get
-- set
-
-#### pure function
-
-- todo list 배열에 todo 객체 추가
-- todo list 배열에서 선택된 todo 객체 삭제
-- todo status 변경 (completed)
-- 날짜 class 함수
-- 프로그레스바 계산 함수
-- todo 객체 생성 함수
-- input value 값 가져오기
-
-#### render function
-
-- li 추가
-- li 삭제
-- list 그리기
-
-#### event function
-
-- init
-- 추가 버튼 클릭
-- todo 삭제
-- 날짜 선택
-- todo 완료
-
-### 기능
-
-todo 추가
-
-todo 삭제
-
-todo 완료
-
-날짜 선택
-
-화면 새로고침 (DOMContentLoaded)
